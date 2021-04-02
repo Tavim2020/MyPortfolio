@@ -2,7 +2,7 @@ import React from 'react'
 import { GlobalContext } from '../../Context/GlobalContext';
 
 import { AudioContainer, ContainerInternoAudio, PlayStop,
-ContainerTextMusicAndBarVisualization, AudioExec, IconsDancing  } from './StylesHeader';
+ContainerTextMusicAndBarVisualization, AudioExec  } from './StylesHeader';
 
 
 export const Audio = () => {
@@ -42,7 +42,7 @@ export const Audio = () => {
             // Titulo da música verdadeira após a criaçao
             setTitleMusic(true);
         }
-    }, []);
+    }, [musicList, setTitleMusic, titleMusic]);
     
 
 
@@ -236,7 +236,7 @@ export const Audio = () => {
 
                             <div className='Bar'>
 
-                                <input type='range'  className='ContentBar' />
+                                <input type='range' className='ContentBar' />
 
                                 <AudioExec>
                                     <source id='srcMusic'  type='audio/mp3' />

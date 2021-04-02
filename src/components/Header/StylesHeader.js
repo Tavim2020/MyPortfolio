@@ -123,7 +123,7 @@ export const ContainerTextMusicAndBarVisualization = styled.div`
 
     .BarContainer{
         width: 100%;
-        height: 100%;
+        height: 60%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -133,7 +133,7 @@ export const ContainerTextMusicAndBarVisualization = styled.div`
     .BarContainer .Bar{
         margin: 0 auto;
         width: 90%;
-        height: 25%;
+        height: 45%;
         display: flex;
         align-items: center;
         border-radius: 1.2vw;
@@ -142,6 +142,7 @@ export const ContainerTextMusicAndBarVisualization = styled.div`
 
     .Bar .ContentBar{  
         width: 100%;
+        height: 35% !important;
         background-color: var(--bar-music);
         cursor: pointer;
     }
@@ -318,7 +319,7 @@ export const ContainerInternoHeader = styled.div`
                 nav ul{
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: flex-end;
 
                     li{
                         color: var(--white);
@@ -327,6 +328,15 @@ export const ContainerInternoHeader = styled.div`
                         margin-right: 2vw;
                         cursor: pointer;
     
+                    }
+
+
+                    li:nth-child(1){
+                        animation: moveTop;
+                        animation-duration: 6s;
+                        animation-delay: 1;
+                        animation-direction: normal;
+
                         &::before{
                             content: '< ';
                             color: var(--tag-color);
@@ -336,14 +346,6 @@ export const ContainerInternoHeader = styled.div`
                             content: ' >';
                             color: var(--tag-color);
                         }
-                    }
-
-
-                    li:nth-child(1){
-                        animation: moveTop;
-                        animation-duration: 6s;
-                        animation-delay: 1;
-                        animation-direction: normal;
 
                         @keyframes moveTop{
                             from{
@@ -365,6 +367,16 @@ export const ContainerInternoHeader = styled.div`
                         animation-delay: 1;
                         animation-direction: normal;
 
+                        &::before{
+                            content: '{ ';
+                            color: var(--tag-color);
+                        }
+    
+                        &::after{
+                            content: ' }';
+                            color: var(--tag-color);
+                        }
+
                         @keyframes moveBottom{
                             from{
                                 transition: 1s;
@@ -385,6 +397,16 @@ export const ContainerInternoHeader = styled.div`
                         animation-duration: 6s;
                         animation-delay: 1;
                         animation-direction: normal;
+
+                        &::before{
+                            content: '( ';
+                            color: var(--tag-color);
+                        }
+    
+                        &::after{
+                            content: ' )';
+                            color: var(--tag-color);
+                        }
 
                         @keyframes moveRight{
                             from{

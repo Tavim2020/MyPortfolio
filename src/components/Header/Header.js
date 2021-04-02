@@ -6,7 +6,8 @@ import { GlobalContext } from '../../Context/GlobalContext';
 
 export const Header = () => {
 
-    const { musicMove, lastMusic, advancedMusic, setMusicMove} = React.useContext(GlobalContext);
+    const { musicMove, lastMusic, advancedMusic, MoveFace, MoveLinkedin, MoveGitHub,
+        DevON ,TechON, ContatoON} = React.useContext(GlobalContext);
 
 
     // Desativando o efeito da digitação
@@ -20,6 +21,7 @@ export const Header = () => {
             }, 5500)
 
     }, []);
+
 
 
     // Função para executar a mudança das imagens na transação
@@ -56,9 +58,11 @@ export const Header = () => {
                     linkedin.style.transition = '5s';
                     linkedin.style.opacity = '1';
         
-                }, 2000);
+                }, 1000);
 
-             } else if(lastMusic === false || advancedMusic === false) {
+            } 
+            
+            else if(lastMusic === false || advancedMusic === false) {
                 facebook.style.transition = '0s';
                 facebook.style.opacity = '0';
                 
@@ -84,15 +88,16 @@ export const Header = () => {
                     facebook.src = 'icons/facebookBlue.svg';
                     github.src = 'icons/githubBlue.png';
                     linkedin.src = 'icons/linkedinBlue.png';
-
-
-                }, 2000)
+                }, 1000)
             }
 
-        }, 1000);
+        }, 200);
 
-    }, [lastMusic, advancedMusic])
-    
+    }, [lastMusic, advancedMusic]);
+
+
+   
+
    
 
     return (
@@ -115,15 +120,15 @@ export const Header = () => {
 
                             <div className='iconsAcess'>
 
-                                <img id='facebook' src='icons/facebookBlack.svg' alt='Facebook' title='Facebook' />
+                                <img id='facebook' onClick={MoveFace} alt='Facebook' title='Facebook' />
 
-                                <img id='github' src='icons/githubBlack.svg' alt='Git Hub' title='Git Hub' />
+                                <img id='github'  onClick={MoveGitHub} alt='Git Hub' title='Git Hub' />
 
-                                <img id='linkedin' src='icons/linkedinBlack.svg' alt='Linkedin' title='LInkedin' />
+                                <img id='linkedin'  onClick={MoveLinkedin} alt='Linkedin' title='LInkedin' />
 
                                 
                             </div>
-                            
+
                         </div>
 
 
@@ -131,7 +136,7 @@ export const Header = () => {
 
                             <div className='mainText'>
 
-                                <h2> Otávio Dos Santos Lopes  </h2> 
+                                <h2 title='Otávio Dos Santos Lopes'> Otávio Dos Santos Lopes  </h2> 
                                 <strong>|</strong>
 
                             </div>
@@ -142,9 +147,9 @@ export const Header = () => {
                                     
                                     <ul>
 
-                                        <li>Desenvolvedor</li>
-                                        <li>TechSkills</li>
-                                        <li>Contato</li>
+                                        <li onClick={DevON}>Desenvolvedor</li>
+                                        <li onClick={TechON}>TechSkills</li>
+                                        <li onClick={ContatoON}>Contato</li>
 
                                     </ul>
 

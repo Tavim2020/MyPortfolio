@@ -12,7 +12,8 @@
     --background-bar: rgba(111, 94, 92, 0.295);
     --white: #fff;
     --chocolate: #241909;
-    --header-background-color: rgba(0, 0, 0, 0.897);
+    --header-background-color: rgb(0, 0, 0);
     --tag-color: #F55D3E;
+    --container-developer: #747572;
 }
    
