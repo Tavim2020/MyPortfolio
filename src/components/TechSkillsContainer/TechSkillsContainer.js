@@ -1,9 +1,13 @@
 import React from 'react'
+import { GlobalContext } from '../../Context/GlobalContext';
 import { TechSkillsContainerDiv } from './StyleTechSkillsContainer';
 
 const TechSkillsContainer = () => {
+
+    const { scrollTwo } = React.useContext(GlobalContext);
+    
     return (
-        <TechSkillsContainerDiv id='TechSkills' >
+        <TechSkillsContainerDiv id='TechSkills' scrollTwo={scrollTwo}>
 
             <div className='TitleTechSkills'>
 
@@ -43,7 +47,7 @@ const TechSkillsContainer = () => {
 
                         <div className='barPorcent two'>
 
-                            <span>Básicos</span>
+                            <span>Básico</span>
                             
                         </div>
 

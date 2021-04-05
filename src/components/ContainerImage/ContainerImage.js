@@ -1,15 +1,53 @@
 import React from 'react'
+import { GlobalContext } from '../../Context/GlobalContext';
 import { ContainerImageDiv }from './StyleImageContainer';
 
 export const ContainerImage = () => {
 
-    
+    const { effect, effectFoguete, hiddenImage} = React.useContext(GlobalContext);
 
 
     return (
-        <ContainerImageDiv>
+        <ContainerImageDiv effect={effect} hiddenImage={hiddenImage}>
 
                 <div className='Perfil'>
+
+                    <div className='containerEffect'>
+
+
+                        <div class='foguete' effect={effect} autoPlay>
+
+                            <img src='icons/foguete.svg' alt='Foguete' />     
+
+                            <img className='otavio'src='imagens/otavio.jpeg' alt='Otavio' />   
+
+                        </div>
+
+                        <div className='myImage' hiddenImage={hiddenImage}>
+
+                            <img className='otavio'src='imagens/otavio.jpeg' alt='Otavio' /> 
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div className='showItem' >
+
+                        <img onClick={ effectFoguete } src='icons/play.svg' alt='Play Animation' title='Play Animation' /> 
+                        <p>Animate</p>
+
+                    </div>
+
+
+
+                    <audio id='audioFoguete'>
+
+                        <source src='musicEffects/foguete.mp3' type='audio/mp3'></source>
+
+                    </audio>
+
 
                 </div>
 

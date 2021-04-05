@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import ContainerImage from './components/ContainerImage/ContainerImage';
 import ContainerDeveloper from './components/ContainerDeveloper/ContainerDeveloper';
 import TechSkillsContainer  from './components/TechSkillsContainer/TechSkillsContainer';
+import ContainerContato from './components/ContainerContato/ContainerContato';
 
 const AppContainer = styled.div`
     width: 100vw;
@@ -22,6 +23,8 @@ export const App = () => {
       <ContainerDeveloper />
 
       <TechSkillsContainer />
+
+      <ContainerContato />
 
     </AppContainer>
 

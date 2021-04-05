@@ -19,14 +19,15 @@ export const ContainerDeveloperDiv = styled.div`
 
     .titleDev{
         border-top: 0.16vw solid var(--light-gray);
-        padding-top: 6vw;
+    
         margin: 0 auto;
         width: 95%;
         display: flex;
+        justify-content: space-between;
 
 
         animation: ${({scroll}) => scroll ? 'showElement' : null};
-        animation-duration: 1s;
+        animation-duration: 1.5s;
         animation-direction: normal;
         animation-delay: 1;
         transition: 1s;
@@ -35,15 +36,14 @@ export const ContainerDeveloperDiv = styled.div`
         @keyframes showElement{
             from{
                 opacity: 0;
-                transform: translateY(5vw);
+                transform: scale3d(0.1, 1, 20)
             }
 
             to{
                 opacity: 1;
-                transform: translateY(0);
+                transform: initial;
             }
-        };
-        
+        }
 
         h3{
             font-size: 2.3vw;
@@ -62,34 +62,95 @@ export const ContainerDeveloperDiv = styled.div`
             }
         }
 
-        img{
-            width: 6vw;
-            margin-top: -3.5vw;
-        }
-
-        
-    }
-
-    .conteudo{
-        margin: 0 auto;
-        margin-top: 4vw;
-        width: 95%;
-
-        animation: ${({scroll}) => scroll ? 'showElement' : null};
-        animation-duration: 1s;
-        animation-direction: normal;
-        animation-delay: 1;
-        transition: 1s;
-        opacity: ${({scroll}) => scroll ? '1' : '0'};
-
         p{
-            width: 45%;
             color: var(--white);
             font-size: 1.9vw;
             font-family: 'Permanent Marker', cursive;
             line-height: 2.8vw;
         }
-    }     
+
+
+        img{
+            width: 6vw;
+            margin-top: -4vw;
+        }
+
+        .dev{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding-top: 6vw;
+
+            .title{
+                display: flex;
+                margin-bottom: 4vw;
+
+            }
+
+            .conteudo{
+                animation: ${({scroll}) => scroll ? 'showElement' : null};
+                animation-duration: 1s;
+                animation-direction: normal;
+                animation-delay: 1;
+                transition: 1s;
+                opacity: ${({scroll}) => scroll ? '1' : '0'};
+
+                p{
+                    width: 90%;
+                }
+
+                
+            }     
+            
+
+        }
+
+
+
+        .project{
+            width: 50%;
+            margin-top: 6vw;
+            border-left: 0.16vw solid var(--light-gray);
+
+            .titleProject{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 4vw;
+            }
+
+            .listProjects{
+                margin: 0 auto;
+                width: 90%;
+                overflow: hidden;
+
+                p{
+                    cursor: pointer;
+                    text-align: center;
+                }
+    
+                p:nth-child(2),
+                p:nth-child(3),
+                p:nth-child(4),
+                p:nth-child(5),
+                p:nth-child(6),
+                p:nth-child(7){
+                    margin-top: 2vw;
+                    white-space: nowrap;
+                }
+            }
+
+
+        }
+        
+
+      
+
+        
+    }
+
+    
 
 
 `;

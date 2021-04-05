@@ -26,8 +26,17 @@ export const GlobalStorage = ({children}) => {
 
 
     // Função de scroll on
-    const [scroll, setScroll] = React.useState(0);
+    const [scroll, setScroll] = React.useState(false);
+    const [scrollTwo, setScrollTwo] = React.useState(false);
+    const [scrollTree, setScrollTree] = React.useState(false);
+    
+    
 
+    // efeito do foguete
+    const [effect, setEffect ]= React.useState(false);
+    const [hiddenImage, setHiddenImage] = React.useState(false);
+
+   
 
     // Função para dar o efeito inicial para depois caso o usuario queira mudar a musica tenha sempre um efeito
     React.useEffect( function effectActiveDIv(){
@@ -37,7 +46,33 @@ export const GlobalStorage = ({children}) => {
         }, 15000)
     }, []);
 
+    
 
+    // função que da efeito ao foguete
+   function effectFoguete(){
+        setHiddenImage(true);
+        setTimeout(()=>{
+            setHiddenImage(false);
+            setEffect(true);
+        }, 3500)     
+    };
+
+
+
+
+    React.useEffect(()=>{
+        const foguete = document.querySelector('#audioFoguete');
+        if(effect === true){
+            foguete.play();
+
+            setTimeout(()=>{
+                setEffect(false);
+            }, 4600)
+
+        }
+
+        
+    }, [effect])
 
 
     // Função para Retroceder a música
@@ -48,21 +83,20 @@ export const GlobalStorage = ({children}) => {
             setLastMusic(false);
             setAdvancedMusic(false);
         }, 15000);
-
     };
 
 
 
      // Função de Avançar a musica e rotacionar a div
      function ClickAdvanced(){
-        setAdvancedMusic(true);
-        setMusicMove(true);
-        setTimeout(()=>{
-            setAdvancedMusic(false);
-            setLastMusic(false);
-        }, 15000)
+         setAdvancedMusic(true);
+         setMusicMove(true);
+          setTimeout(()=>{
+             setAdvancedMusic(false);
+             setLastMusic(false);
+            }, 15000);
+        
     }
-
 
 
 
@@ -178,17 +212,6 @@ export const GlobalStorage = ({children}) => {
     }, [TechSkills]);
 
 
-
-    // Função no scroll
-    React.useEffect(()=>{
-        window.addEventListener('scroll', ()=>{
-            if(window.scrollY >= 390){
-                setScroll(true);
-            }
-        })
-    }, [])
-
-
     React.useEffect(()=>{
         if(Contato === true){
             window.location.href = '#Contato';
@@ -197,6 +220,38 @@ export const GlobalStorage = ({children}) => {
             }, 2000);
         };
     }, [Contato]);
+
+
+
+
+
+    // Função no scroll
+    React.useEffect(()=>{
+        window.addEventListener('scroll', ()=>{
+            const windowScroll = window.pageYOffset + ((window.innerHeight * 3) / 4);
+
+            const containerDeveloper = document.querySelector("#Desenvolvedor");
+            const containerSkills = document.querySelector('#TechSkills');
+            const containerContato = document.querySelector('#Contato');
+
+            if(windowScroll >= containerDeveloper.offsetTop + 300 && windowScroll < containerSkills.offsetTop - 100){
+                setScroll(true);
+            }
+
+            if(windowScroll >= containerSkills.offsetTop && windowScroll < containerContato.offsetTop){
+                setScrollTwo(true);
+            }
+
+            if(windowScroll >= containerContato.offsetTop){
+                setScrollTree(true);
+                console.log(scrollTree)
+            }
+        });
+
+    }, [scroll, scrollTwo, scrollTree])
+
+
+    
 
 
    return (
@@ -215,6 +270,13 @@ export const GlobalStorage = ({children}) => {
        activeFace,
        scroll,
        setScroll,
+       scrollTwo,
+       setScrollTwo,
+       scrollTree,
+       setScrollTree,
+       effect,
+       setEffect,
+       hiddenImage,
        DevON,
        TechON,
        ContatoON,
@@ -224,6 +286,7 @@ export const GlobalStorage = ({children}) => {
        MoveFace,
        MoveGitHub,
        MoveLinkedin,
+       effectFoguete,
    }}>
         {children}
     </GlobalContext.Provider>

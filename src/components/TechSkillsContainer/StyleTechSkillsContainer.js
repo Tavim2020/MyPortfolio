@@ -9,12 +9,27 @@ export const TechSkillsContainerDiv = styled.section`
     background-size: cover;
     object-fit: cover;
     background-attachment: fixed;
+    animation: ${({scrollTwo}) => scrollTwo ? 'crescentImage' : ''};
+    animation-duration: 3s;
+    animation-delay: 1;
+    opacity: ${({scrollTwo}) => scrollTwo ? '1' : '0'};
+
+    @keyframes crescentImage{
+        from{
+            opacity: 0;
+            transform: translateY(5vw);
+        }
+
+        to{
+            opacity: 1;
+            transform: initial;
+        }   
+    }
     
 
     .TitleTechSkills{
         margin: 0 auto;
         width: 95%;
-        height: 12vw;
         /* border-top: 0.16vw solid var(--light-gray); */
         padding-top: 6vw;
         display: flex;
@@ -43,7 +58,7 @@ export const TechSkillsContainerDiv = styled.section`
 
         img{
             width: 6vw;
-            margin-top: -3vw;
+            margin-top: -4vw;
         }
         
     }
@@ -141,7 +156,9 @@ export const TechSkillsContainerDiv = styled.section`
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        font-size: 1.2vw;
                         color: var(--white);
+                        font-family: 'Dela Gothic One', cursive;
                     }
                 }
 
