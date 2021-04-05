@@ -8,6 +8,7 @@ export const ContainerImageDiv = styled.section`
     display: flex; 
     align-items: center;
     
+    
 
     .Perfil{
         width: 50%;
@@ -27,6 +28,7 @@ export const ContainerImageDiv = styled.section`
             flex-direction: column;
             justify-content: center;
             position: relative;
+
 
 
             .foguete{
@@ -160,7 +162,7 @@ export const ContainerImageDiv = styled.section`
             margin-top: 0.5vw;
             font-family: 'Permanent Marker', cursive;
         }
-        
+
     }
 
 
