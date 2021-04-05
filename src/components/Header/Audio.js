@@ -54,7 +54,7 @@ export const Audio = () => {
         if(isActiveMusic === true){
             audio.play();
            
-            // Função para quando executar o audio validar o
+            // Função para quando executar o audio validar 
             audio.addEventListener('play', ()=>{
 
                 audio.addEventListener('timeupdate', ()=>{
@@ -150,7 +150,7 @@ export const Audio = () => {
         // Depois de ter executao o Time para executar a música reseta o botão de mudar a música
         setTimeout(()=>{
             setMusicMove(false); 
-        }, 1000)
+        }, 200)
     }
 
 

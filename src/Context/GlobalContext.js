@@ -11,6 +11,9 @@ export const GlobalStorage = ({children}) => {
     const [musicMove, setMusicMove] = React.useState(false);
     const [titleMusic, setTitleMusic] = React.useState(false);
     const [indexMusic, setIndexMusic] = React.useState(0);
+    const timerAdvancedRef = React.useRef();
+    const timerLastRef = React.useRef();
+    const timerMoveMusic = React.useRef();
 
     // Redirecionamento de página
     const [activeFace, setActiveFace] = React.useState(false);
@@ -68,7 +71,7 @@ export const GlobalStorage = ({children}) => {
 
             setTimeout(()=>{
                 setEffect(false);
-            }, 4600)
+            }, 4500)
 
         }
 
@@ -80,7 +83,8 @@ export const GlobalStorage = ({children}) => {
     function RetroMusic(){
         setLastMusic(true);
         setMusicMove(true);
-        setTimeout(()=>{
+        clearTimeout(timerLastRef);
+        timerLastRef.current = setTimeout(()=>{
             setLastMusic(false);
             setAdvancedMusic(false);
         }, 15000);
@@ -92,7 +96,8 @@ export const GlobalStorage = ({children}) => {
      function ClickAdvanced(){
          setAdvancedMusic(true);
          setMusicMove(true);
-          setTimeout(()=>{
+         clearTimeout(timerAdvancedRef);
+         timerAdvancedRef.current = setTimeout(()=>{
              setAdvancedMusic(false);
              setLastMusic(false);
             }, 15000);
