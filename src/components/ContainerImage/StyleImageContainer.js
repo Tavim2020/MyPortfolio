@@ -160,7 +160,9 @@ export const ContainerImageDiv = styled.section`
             margin-top: 0.5vw;
             font-family: 'Permanent Marker', cursive;
         }
+        
     }
+
 
     }
 
